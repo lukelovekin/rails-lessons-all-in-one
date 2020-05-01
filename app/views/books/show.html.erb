@@ -1,0 +1,9 @@
+<%= render "nav"%>
+
+<%= image_tag @book.picture, width: 120 %>
+
+<h1>Books#show</h1>
+
+
+<h2><%= @book.title %></h2>
+<h4>Author - <%= @book[:author]%></h4>

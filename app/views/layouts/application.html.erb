@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookshop</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <section>
+      <p class="notice">alert<%= notice %></p>
+      <p class="alert">alert<%= alert %></p>
+
+      <nav>
+        <%= image_tag 'osrs.jpg', alt: "osrs map", width: 200 %>
+
+        <% if user_signed_in? %>
+          <p>Welcome, <%= current_user.email%>! | <%= link_to 'logout', destroy_user_session_path, method: "delete" %> </p>
+          <% else %>
+          <p><%= link_to 'Login', new_user_session_path %> | <%= link_to 'Sign up', new_user_registration_path %></p>
+        <% end %>
+      </nav>
+      <%= yield %>
+    </section>
+  </body>
+</html>

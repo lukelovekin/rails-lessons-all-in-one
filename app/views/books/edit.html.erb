@@ -1,0 +1,20 @@
+We at edit
+
+<%= form_with model: @book do |f|%>
+    <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    <div>
+        <%= f.label :author %>
+        <%= f.text_field :author %>
+    </div>
+    <div>
+        <%= f.label :genre %>
+        <%= f.text_field :genre %>
+    </div>
+    <div>
+        <%= f.submit %>
+    </div>
+
+<% end %>

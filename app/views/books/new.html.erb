@@ -1,0 +1,59 @@
+<h1>Books#new</h1>
+
+<!--<h4><%= flash[:alert] %></h4>-->
+
+<%= form_with model: @book do |f|%>
+    <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    <div>
+        <%= f.label :author %>
+        <%= f.collection_select(:author_id, @author, :id, :full_name) %>
+        
+        <%# # options_for_select([
+        #         ["please select...", 0],
+        #         ["JK", 13],
+        #         ["PR", 14],
+        #         ["JRR", 15],
+        #         ["GO", 16],
+        #         ["BS", 17]]) %>
+    </div>
+    <div>
+        <%= f.label :genre %> 
+        <%= f.collection_check_boxes(:genres, @genre, :id, :name) %>
+    </div> 
+    <div>
+        <%= f.label :picture %>
+        <%= f.file_field :picture, accept: "image/png,image/gif,image/jpeg, image/jpg, image/webp" %>
+    </div>
+    <div>
+        <%= f.submit %>
+    </div>
+
+<% end %>
+
+
+
+
+
+
+
+
+<%# html form builder %>
+<%if false %>
+<form method="post" action="<%=create_book_path%>">
+<input type="hidden" value="<%=form_authenticity_token%>" name="authenticity_token"/>
+    <div>
+        <label for="">Title</label>
+        <input type="text" name="book[title]"/>
+    </div>
+        <div>
+        <label for="">Genre</label>
+        <input type="text" name="book[genre]"/>
+    </div>
+    <div>
+    <button>New Book</button>
+    </div>
+</form>
+<%end %>
