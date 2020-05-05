@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
 #   get 'booklist/index'
 devise_for :users
 #get to home page with is books index
@@ -12,6 +13,9 @@ get "/contact", to: "books#contact", as: "contact"
 
 get "/books/new", to: "books#new", as: "new_book"
 post "/books", to: "books#create"
+
+resources :orders, only: [:new]
+
 
 get "/books/:id", to: "books#show", as: "show"
 

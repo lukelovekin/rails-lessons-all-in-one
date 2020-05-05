@@ -7,6 +7,7 @@ class BooksController < ApplicationController
   
   def index
     @books = Book.all
+    @author = Author.all
     # @books = Book.order(id: :asc)
   end
 

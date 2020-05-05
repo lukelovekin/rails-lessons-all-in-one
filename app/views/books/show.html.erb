@@ -1,9 +1,15 @@
 <%= render "nav"%>
 
-<%= image_tag @book.picture, width: 120 %>
+<%= image_tag @book.picture, width: 120 if @book.picture.attached? %>
 
 <h1>Books#show</h1>
 
 
 <h2><%= @book.title %></h2>
-<h4>Author - <%= @book[:author]%></h4>
+<h4>Author - <%= @book.author.full_name%></h4>
+
+<% if @book.price %>
+<h5><%= number_to_currency @book.price || 0.0 %></h5>
+<%= link_to "Buy Now", new_order_path(book_id: @book.id) %>
+<% end %>
+

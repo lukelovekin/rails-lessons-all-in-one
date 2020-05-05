@@ -5,7 +5,7 @@
 <ul>
    <% @books.each do |book|%>
     <li><%= book.title  %></li>
-    <li><%= book[:author_id]  %></li>
+    <li><%= book.author.full_name  %></li>
     <li><%= link_to "Show", show_path(book) %></li>
     <br>
 
